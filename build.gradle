@@ -3,21 +3,21 @@ plugins {
   id 'org.unbroken-dome.test-sets' version '2.2.1' apply false
 }
 
-subprojects {
-  apply plugin: 'java-library'
-  apply plugin: 'org.unbroken-dome.test-sets'
-  apply plugin: 'net.ltgt.errorprone'
+apply plugin: 'java-library'
+apply plugin: 'org.unbroken-dome.test-sets'
+apply plugin: 'net.ltgt.errorprone'
 
-  repositories {
-    jcenter()
-  }
+repositories {
+  jcenter()
+}
 
-  testSets {
-    integrationTest
-    referenceTest
-  }
+testSets {
+  integrationTest
+  referenceTest
+}
 
-  dependencies {
-    errorprone("com.google.errorprone:error_prone_core:2.3.2")
-  }
+dependencies {
+  errorprone("com.google.errorprone:error_prone_core:2.3.3")
+
+  integrationTestImplementation 'junit:junit:4.12'
 }

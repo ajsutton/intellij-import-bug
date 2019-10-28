@@ -1,0 +1,23 @@
+plugins {
+  id 'net.ltgt.errorprone' version '0.7' apply false
+  id 'org.unbroken-dome.test-sets' version '2.2.1' apply false
+}
+
+subprojects {
+  apply plugin: 'java-library'
+  apply plugin: 'org.unbroken-dome.test-sets'
+  apply plugin: 'net.ltgt.errorprone'
+
+  repositories {
+    jcenter()
+  }
+
+  testSets {
+    integrationTest
+    referenceTest
+  }
+
+  dependencies {
+    errorprone("com.google.errorprone:error_prone_core:2.3.2")
+  }
+}
